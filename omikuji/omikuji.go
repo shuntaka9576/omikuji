@@ -10,16 +10,14 @@ type Clock interface {
 }
 
 type Omikuji struct {
-	Clock
+	Clock Clock
 }
 
-func (o *Omikuji) Now() time.Time {
+func (o *Omikuji) now() time.Time {
+	if o.Clock == nil {
+		return time.Now()
+	}
 	return o.Clock.Now()
-}
-
-func NewOmikuji() Omikuji{
-
-	return &Omikuji
 }
 
 type ClockFunc func() time.Time
@@ -29,7 +27,10 @@ func (f ClockFunc) Now() time.Time {
 }
 
 func (o *Omikuji) Run() {
-	now := o.Clock.Now()
-	fmt.Println(now.Month())
-	fmt.Println(now.Date())
+	now := o.now()
+	d := now.Format("20060102")
+
+	switch d[4:] {
+
+	}
 }

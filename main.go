@@ -2,11 +2,9 @@ package main
 
 import (
 	"github.com/shuntaka9576/omikuji/omikuji"
-	"time"
 )
 
 func main() {
-	nowOmikuji := omikuji.Omikuji{}
+	var nowOmikuji omikuji.Omikuji
 	nowOmikuji.Run()
-
 }
