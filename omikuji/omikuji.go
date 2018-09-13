@@ -2,6 +2,7 @@ package omikuji
 
 import (
 	"time"
+	"github.com/shuntaka9576/omikuji/kuji"
 )
 
 type Clock interface {
@@ -10,6 +11,11 @@ type Clock interface {
 
 type Omikuji struct {
 	Clock Clock
+	Kuji []kuji.Kuji
+}
+
+func init() {
+
 }
 
 func (o *Omikuji) now() time.Time {
