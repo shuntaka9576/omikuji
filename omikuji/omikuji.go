@@ -2,7 +2,6 @@ package omikuji
 
 import (
 	"time"
-	"fmt"
 )
 
 type Clock interface {
