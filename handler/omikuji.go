@@ -7,6 +7,10 @@ import (
 )
 
 func OmikujiHandler(w http.ResponseWriter, r *http.Request) {
+	// fortune := Omikuji.Run()
+	//res := &domain.Omikuji{fortune}
+	//json.NewEncoder(w).Encode(res)
+
 	res := &domain.Omikuji{"吉"}
 	json.NewEncoder(w).Encode(res)
 }
