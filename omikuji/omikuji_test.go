@@ -55,7 +55,7 @@ func TestOmikuji_Run(t *testing.T) {
 	}
 
 	for name, tt := range tests {
-
+		tt := tt
 		t.Run(name, func(t *testing.T) {
 			o := omikuji.Omikuji{
 				Clock: tt.clock,
