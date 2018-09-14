@@ -1,16 +1,16 @@
 package handler
 
 import (
-	"net/http"
-	"github.com/shuntaka9576/omikuji/domain"
 	"encoding/json"
+	"net/http"
+
+	"github.com/shuntaka9576/omikuji/domain"
+	"github.com/shuntaka9576/omikuji/omikuji"
 )
 
 func OmikujiHandler(w http.ResponseWriter, r *http.Request) {
-	// fortune := Omikuji.Run()
-	//res := &domain.Omikuji{fortune}
-	//json.NewEncoder(w).Encode(res)
+	nowOmikuji := omikuji.Omikuji{}
 
-	res := &domain.Omikuji{"吉"}
+	res := &domain.Omikuji{Result: nowOmikuji.Run()}
 	json.NewEncoder(w).Encode(res)
 }

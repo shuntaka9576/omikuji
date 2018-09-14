@@ -2,6 +2,8 @@ package omikuji
 
 import (
 	"time"
+
+	"github.com/shuntaka9576/omikuji/kuji"
 )
 
 type Clock interface {
@@ -26,16 +28,9 @@ func (f ClockFunc) Now() time.Time {
 }
 
 func (o *Omikuji) Run() string {
-	now := o.now()
-	d := now.Format("20060102")
-
-	switch d[4:] {
-	case "0101":
-		fallthrough
-	case "0102":
-		fallthrough
-	case "0103":
-		return "大吉"
+	_, month, day := o.now().Date()
+	if month == time.January && day == 1 || day == 2 || day == 3 {
+		return kuji.Dikichi.PrintFortune()
 	}
-	return ""
+	return kuji.RandomFortune()
 }
