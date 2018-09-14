@@ -1,17 +1,45 @@
 package kuji
 
-import "time"
+type Kuji int
 
-type Kuji interface {
-	Date() []time.Time
+const (
+	Daikichi  = iota
+	Shoukichi
+	Chuukichi
+)
+
+func (c Kuji) GetName() string {
+	switch c {
+	case 1:
+		return "大吉"
+	}
+	return ""
 }
 
-type Daikichi struct {
-	Dates []time.Time
-}
-
-func (d *Daikichi) Date() []time.Time {}
-
-type Shoukichi struct{}
-
-type Chuukichi struct{}
+//import "time"
+//type Kuji interface {
+//	Name() string
+//	Explain() string
+//	Date() []time.Time
+//}
+//
+//type Daikichi struct {
+//	Dates []time.Time
+//}
+//
+//func (d *Daikichi) Name() string {
+//
+//}
+//
+//func (d *Daikichi) Date() []time.Time {
+//
+//}
+//
+//func (d *Daikichi) Explain() string {
+//
+//}
+//
+//
+//type Shoukichi struct{}
+//
+//type Chuukichi struct{}

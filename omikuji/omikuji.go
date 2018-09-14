@@ -14,10 +14,6 @@ type Omikuji struct {
 	Kuji []kuji.Kuji
 }
 
-func init() {
-
-}
-
 func (o *Omikuji) now() time.Time {
 	if o.Clock == nil {
 		return time.Now()
