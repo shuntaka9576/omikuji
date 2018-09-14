@@ -4,19 +4,19 @@ import (
 	"math/rand"
 )
 
-type kuji int
+type Kuji int
 
 const (
-	Dikichi   kuji = 1
-	Kichi     kuji = 2
-	Chuukichi kuji = 3
-	Syoukichi kuji = 4
-	Suekichi  kuji = 5
-	Kyou      kuji = 6
-	Daikyou   kuji = 7
+	Dikichi   Kuji = 1
+	Kichi     Kuji = 2
+	Chuukichi Kuji = 3
+	Syoukichi Kuji = 4
+	Suekichi  Kuji = 5
+	Kyou      Kuji = 6
+	Daikyou   Kuji = 7
 )
 
-func (k kuji) PrintFortune() string {
+func (k Kuji) PrintFortune() string {
 	switch k {
 	case 1:
 		return "大吉"
@@ -37,15 +37,10 @@ func (k kuji) PrintFortune() string {
 	}
 }
 
-func RandomFortune() string {
-	fortunes := []kuji{
-		Dikichi,
-		Kichi,
-		Chuukichi,
-		Syoukichi,
-		Suekichi,
-		Kyou,
-		Daikyou,
+func RandomFortuneExpected(kujes []Kuji) string {
+	var fortunes []Kuji
+	for _, kuji := range kujes {
+		fortunes = append(fortunes, kuji)
 	}
 	return fortunes[rand.Intn(len(fortunes))].PrintFortune()
 }

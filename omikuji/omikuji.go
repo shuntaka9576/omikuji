@@ -27,10 +27,21 @@ func (f ClockFunc) Now() time.Time {
 	return f()
 }
 
-func (o *Omikuji) Run() string {
+func (o *Omikuji) Run() (result string) {
 	_, month, day := o.now().Date()
 	if month == time.January && day == 1 || day == 2 || day == 3 {
 		return kuji.Dikichi.PrintFortune()
 	}
-	return kuji.RandomFortune()
+
+	result = kuji.RandomFortuneExpected(
+		[]kuji.Kuji{
+			kuji.Kichi,
+			kuji.Chuukichi,
+			kuji.Syoukichi,
+			kuji.Suekichi,
+			kuji.Kyou,
+			kuji.Daikyou,
+		},
+	)
+	return
 }
